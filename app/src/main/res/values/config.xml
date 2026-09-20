@@ -14,58 +14,58 @@
     <!-- Amount of width reduction in one-handed mode -->
     <fraction name="config_one_handed_mode_width">86%</fraction>
 
-    <!-- Preferable keyboard height in absolute scale: 1.285in -->
-    <!-- This config_default_keyboard_height value should match with keyboard-heights.xml -->
-    <dimen name="config_default_keyboard_height">205.6dp</dimen>
-    <fraction name="config_max_keyboard_height">46%p</fraction>
+    <!-- Gboard-like compact keyboard height -->
+    <dimen name="config_default_keyboard_height">178dp</dimen>
+    <fraction name="config_max_keyboard_height">40%p</fraction>
     <fraction name="config_min_keyboard_height">-61.8%p</fraction>
 
-    <dimen name="config_popup_keys_keyboard_key_height">52.8dp</dimen>
-    <!-- Amount of allowance for selecting keys in a mini popup keyboard by sliding finger. -->
-    <!-- config_popup_keys_keyboard_key_height x 1.2 -->
-    <dimen name="config_popup_keys_keyboard_slide_allowance">63.36dp</dimen>
-    <dimen name="config_popup_keys_keyboard_key_horizontal_padding">8dp</dimen>
+    <dimen name="config_popup_keys_keyboard_key_height">44dp</dimen>
+    <dimen name="config_popup_keys_keyboard_slide_allowance">52.8dp</dimen>
+    <dimen name="config_popup_keys_keyboard_key_horizontal_padding">6dp</dimen>
 
-    <fraction name="config_keyboard_top_padding_holo">1.5%p</fraction>
-    <fraction name="config_keyboard_bottom_padding_holo">3.0%p</fraction>
-    <fraction name="config_key_vertical_gap_holo">2.8%p</fraction>
-    <fraction name="config_key_horizontal_gap_holo">0.8%p</fraction>
-    <!-- config_popup_keys_keyboard_key_height x -0.5 -->
-    <dimen name="config_popup_keys_keyboard_vertical_correction_holo">-26.4dp</dimen>
-    <dimen name="config_key_preview_offset_holo">40.0dp</dimen>
+    <!-- Compact Gboard-like spacing -->
+    <fraction name="config_keyboard_top_padding_holo">0.8%p</fraction>
+    <fraction name="config_keyboard_bottom_padding_holo">1.5%p</fraction>
+    <fraction name="config_key_vertical_gap_holo">1.6%p</fraction>
+    <fraction name="config_key_horizontal_gap_holo">0.5%p</fraction>
+    <dimen name="config_popup_keys_keyboard_vertical_correction_holo">-22dp</dimen>
+    <dimen name="config_key_preview_offset_holo">36.0dp</dimen>
     <dimen name="config_key_preview_offset_lxx">0dp</dimen>
-    <fraction name="config_key_preview_text_ratio">82%</fraction>
-    <fraction name="config_key_letter_ratio_holo">55%</fraction>
-    <fraction name="config_key_letter_ratio_lxx">55%</fraction>
-    <fraction name="config_key_large_letter_ratio_holo">65%</fraction>
-    <fraction name="config_key_large_letter_ratio_lxx">90%</fraction>
-    <fraction name="config_key_label_ratio_holo">34%</fraction>
-    <fraction name="config_key_label_ratio_lxx">34%</fraction>
-    <fraction name="config_key_hint_letter_ratio_holo">25%</fraction>
-    <fraction name="config_key_hint_letter_ratio_lxx">25%</fraction>
-    <fraction name="config_key_hint_label_ratio_holo">44%</fraction>
-    <fraction name="config_key_hint_label_ratio_lxx">30%</fraction>
-    <fraction name="config_key_shifted_letter_hint_ratio_holo">35%</fraction>
-    <fraction name="config_key_shifted_letter_hint_ratio_lxx">35%</fraction>
-    <fraction name="config_language_on_spacebar_text_ratio">33.735%</fraction>
-    <dimen name="config_key_hint_letter_padding">1dp</dimen>
-    <dimen name="config_key_shifted_letter_hint_padding">2dp</dimen>
+    <fraction name="config_key_preview_text_ratio">80%</fraction>
 
-    <dimen name="config_suggestions_strip_height">40dp</dimen>
-    <dimen name="config_suggestions_strip_edge_key_width">36dp</dimen>
-    <dimen name="config_more_suggestions_row_height">40dp</dimen>
+    <!-- Font size ratios - Gboard-like compact text -->
+    <fraction name="config_key_letter_ratio_holo">48%</fraction>
+    <fraction name="config_key_letter_ratio_lxx">48%</fraction>
+    <fraction name="config_key_large_letter_ratio_holo">58%</fraction>
+    <fraction name="config_key_large_letter_ratio_lxx">82%</fraction>
+    <fraction name="config_key_label_ratio_holo">30%</fraction>
+    <fraction name="config_key_label_ratio_lxx">30%</fraction>
+    <fraction name="config_key_hint_letter_ratio_holo">20%</fraction>
+    <fraction name="config_key_hint_letter_ratio_lxx">20%</fraction>
+    <fraction name="config_key_hint_label_ratio_holo">38%</fraction>
+    <fraction name="config_key_hint_label_ratio_lxx">26%</fraction>
+    <fraction name="config_key_shifted_letter_hint_ratio_holo">30%</fraction>
+    <fraction name="config_key_shifted_letter_hint_ratio_lxx">30%</fraction>
+    <fraction name="config_language_on_spacebar_text_ratio">30%</fraction>
+    <dimen name="config_key_hint_letter_padding">1dp</dimen>
+    <dimen name="config_key_shifted_letter_hint_padding">1dp</dimen>
+
+    <!-- Compact suggestion strip -->
+    <dimen name="config_suggestions_strip_height">36dp</dimen>
+    <dimen name="config_suggestions_strip_edge_key_width">32dp</dimen>
+    <dimen name="config_more_suggestions_row_height">36dp</dimen>
     <integer name="config_max_more_suggestions_row">6</integer>
     <fraction name="config_min_more_suggestions_width">90%</fraction>
-    <dimen name="config_suggestion_min_width">44dp</dimen>
-    <dimen name="config_suggestion_text_horizontal_padding">6dp</dimen>
-    <dimen name="config_suggestion_text_size">18dp</dimen>
-    <dimen name="config_more_suggestions_hint_text_size">27dp</dimen>
+    <dimen name="config_suggestion_min_width">40dp</dimen>
+    <dimen name="config_suggestion_text_horizontal_padding">5dp</dimen>
+    <dimen name="config_suggestion_text_size">15dp</dimen>
+    <dimen name="config_more_suggestions_hint_text_size">24dp</dimen>
 
     <!-- Gesture floating preview text parameters -->
-    <dimen name="config_gesture_floating_preview_text_size">24dp</dimen>
-    <dimen name="config_gesture_floating_preview_text_offset">73dp</dimen>
-    <dimen name="config_gesture_floating_preview_horizontal_padding">24dp</dimen>
-    <dimen name="config_gesture_floating_preview_vertical_padding">16dp</dimen>
+    <dimen name="config_gesture_floating_preview_text_size">22dp</dimen>
+    <dimen name="config_gesture_floating_preview_text_offset">68dp</dimen>
+    <dimen name="config_gesture_floating_preview_horizontal_padding">20dp</dimen>
+    <dimen name="config_gesture_floating_preview_vertical_padding">14dp</dimen>
     <dimen name="config_gesture_floating_preview_round_radius">2dp</dimen>
 
     <!-- Emoji keyboard -->
@@ -81,21 +81,11 @@
     <!-- Floating keyboard -->
     <dimen name="config_floating_handle_height">30dp</dimen>
 
-    <!-- Key codes of hardware keys that can be used to toggle the Emoji layout.
-         Each array defines a comma-separated tuple containing:
-         1. Key code constant from android.view.KeyEvent
-         2. Meta mask (if any) from android.view.KeyEvent
-         Used in EmojiAltPhysicalKeyDetector and KeyboardSwitcher. -->
     <string-array name="keyboard_switcher_emoji" translatable="false">
-        <item>57,16</item> <!-- KeyEvent.KEYCODE_ALT_LEFT , KeyEvent.META_ALT_LEFT_ON -->
+        <item>57,16</item>
     </string-array>
 
-    <!-- Key codes of hardware keys that can be used to toggle the Symbols (Shifted) layout.
-         Each array defines a comma-separated tuple containing:
-         1. Key code constant from android.view.KeyEvent
-         2. Meta mask (if any) from android.view.KeyEvent
-         Used in EmojiAltPhysicalKeyDetector and KeyboardSwitcher. -->
     <string-array name="keyboard_switcher_symbols_shifted" translatable="false">
-        <item>58,32</item> <!-- KeyEvent.KEYCODE_ALT_RIGHT , KeyEvent.META_ALT_RIGHT_ON -->
+        <item>58,32</item>
     </string-array>
 </resources>
