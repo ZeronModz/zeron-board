@@ -346,46 +346,58 @@ private constructor(val themeId: Int, @JvmField val mStyleId: Int) {
                 )
                 THEME_MATERIAL_GREEN -> DefaultColors(
                     themeStyle, hasBorders,
-                    if (isNight) Color.rgb(177, 209, 138) else Color.rgb(76, 102, 43),
-                    if (isNight) Color.rgb(26, 28, 22) else Color.rgb(249, 250, 239),
-                    if (isNight) Color.rgb(42, 44, 38) else Color.rgb(255, 255, 255),
-                    if (isNight) Color.rgb(55, 60, 50) else Color.rgb(205, 237, 163),
-                    if (isNight) Color.rgb(42, 44, 38) else Color.rgb(255, 255, 255),
-                    if (isNight) Color.rgb(241, 242, 230) else Color.rgb(26, 28, 22),
-                    if (isNight) Color.rgb(177, 209, 138) else Color.rgb(53, 78, 22),
+                    if (isNight) Color.parseColor("#B1D18A") else Color.parseColor("#4C662B"),         // accent = primary
+                    if (isNight) Color.parseColor("#12140E") else Color.parseColor("#F9FAEF"),         // background = background/surface
+                    if (isNight) Color.parseColor("#0C0F09") else Color.parseColor("#FFFFFF"),          // keyBackground = surfaceContainerLowest
+                    if (isNight) Color.parseColor("#354E16") else Color.parseColor("#CDEDA3"),          // functionalKey = primaryContainer
+                    if (isNight) Color.parseColor("#1E201A") else Color.parseColor("#EEEFE3"),         // spaceBar = surfaceContainer
+                    if (isNight) Color.parseColor("#E2E3D8") else Color.parseColor("#1A1C16"),         // keyText = onSurface
+                    if (isNight) Color.parseColor("#8F9285") else Color.parseColor("#75796C"),         // keyHintText = outline
+                    if (isNight) Color.parseColor("#C5C8BA") else Color.parseColor("#44483D"),         // suggestionText = onSurfaceVariant
+                    if (isNight) Color.parseColor("#CDEDA3") else Color.parseColor("#354E16"),         // spaceBarText = onPrimaryContainer
+                    if (isNight) Color.parseColor("#A0D0CB") else Color.parseColor("#386663"),         // gesture = tertiary
                     keyboardBackground = backgroundImage
                 )
                 THEME_MATERIAL_RED -> DefaultColors(
                     themeStyle, hasBorders,
-                    if (isNight) Color.rgb(255, 181, 160) else Color.rgb(143, 76, 56),
-                    if (isNight) Color.rgb(35, 25, 23) else Color.rgb(255, 248, 246),
-                    if (isNight) Color.rgb(55, 38, 35) else Color.rgb(255, 255, 255),
-                    if (isNight) Color.rgb(70, 50, 46) else Color.rgb(255, 219, 209),
-                    if (isNight) Color.rgb(55, 38, 35) else Color.rgb(255, 255, 255),
-                    if (isNight) Color.rgb(255, 237, 232) else Color.rgb(35, 25, 23),
-                    if (isNight) Color.rgb(255, 181, 160) else Color.rgb(114, 53, 35),
+                    if (isNight) Color.parseColor("#FFB5A0") else Color.parseColor("#8F4C38"),         // accent = primary
+                    if (isNight) Color.parseColor("#1C1110") else Color.parseColor("#FFF8F6"),         // background = background/surface
+                    if (isNight) Color.parseColor("#1A0E0C") else Color.parseColor("#FFFFFF"),          // keyBackground = surfaceContainerLowest
+                    if (isNight) Color.parseColor("#723523") else Color.parseColor("#FFDBD1"),          // functionalKey = primaryContainer
+                    if (isNight) Color.parseColor("#231917") else Color.parseColor("#FCEAE5"),         // spaceBar = surfaceContainer
+                    if (isNight) Color.parseColor("#FFEDE8") else Color.parseColor("#231917"),         // keyText = onSurface
+                    if (isNight) Color.parseColor("#85736E") else Color.parseColor("#53433F"),         // keyHintText = outline
+                    if (isNight) Color.parseColor("#D8C2BC") else Color.parseColor("#53433F"),         // suggestionText = onSurfaceVariant
+                    if (isNight) Color.parseColor("#FFDBD1") else Color.parseColor("#723523"),         // spaceBarText = onPrimaryContainer
+                    if (isNight) Color.parseColor("#D8C58D") else Color.parseColor("#6C5D2F"),         // gesture = tertiary
                     keyboardBackground = backgroundImage
                 )
                 THEME_MATERIAL_BLUE -> DefaultColors(
                     themeStyle, hasBorders,
-                    if (isNight) Color.rgb(170, 199, 255) else Color.rgb(65, 95, 145),
-                    if (isNight) Color.rgb(25, 28, 32) else Color.rgb(249, 249, 255),
-                    if (isNight) Color.rgb(38, 42, 50) else Color.rgb(255, 255, 255),
-                    if (isNight) Color.rgb(50, 55, 65) else Color.rgb(214, 227, 255),
-                    if (isNight) Color.rgb(38, 42, 50) else Color.rgb(255, 255, 255),
-                    if (isNight) Color.rgb(240, 240, 247) else Color.rgb(25, 28, 32),
-                    if (isNight) Color.rgb(170, 199, 255) else Color.rgb(40, 71, 119),
+                    if (isNight) Color.parseColor("#AAC7FF") else Color.parseColor("#415F91"),         // accent = primary
+                    if (isNight) Color.parseColor("#111318") else Color.parseColor("#F9F9FF"),         // background = background/surface
+                    if (isNight) Color.parseColor("#0E1015") else Color.parseColor("#FFFFFF"),          // keyBackground = surfaceContainerLowest
+                    if (isNight) Color.parseColor("#284777") else Color.parseColor("#D6E3FF"),          // functionalKey = primaryContainer
+                    if (isNight) Color.parseColor("#191C20") else Color.parseColor("#EDEDF4"),         // spaceBar = surfaceContainer
+                    if (isNight) Color.parseColor("#E2E2E9") else Color.parseColor("#191C20"),         // keyText = onSurface
+                    if (isNight) Color.parseColor("#74777F") else Color.parseColor("#44474E"),         // keyHintText = outline
+                    if (isNight) Color.parseColor("#C4C6D0") else Color.parseColor("#44474E"),         // suggestionText = onSurfaceVariant
+                    if (isNight) Color.parseColor("#D6E3FF") else Color.parseColor("#284777"),         // spaceBarText = onPrimaryContainer
+                    if (isNight) Color.parseColor("#DDBCE0") else Color.parseColor("#705575"),         // gesture = tertiary
                     keyboardBackground = backgroundImage
                 )
                 THEME_MATERIAL_YELLOW -> DefaultColors(
                     themeStyle, hasBorders,
-                    if (isNight) Color.rgb(219, 198, 110) else Color.rgb(109, 94, 15),
-                    if (isNight) Color.rgb(30, 27, 19) else Color.rgb(255, 249, 238),
-                    if (isNight) Color.rgb(50, 46, 32) else Color.rgb(255, 255, 255),
-                    if (isNight) Color.rgb(65, 60, 40) else Color.rgb(248, 226, 135),
-                    if (isNight) Color.rgb(50, 46, 32) else Color.rgb(255, 255, 255),
-                    if (isNight) Color.rgb(247, 240, 226) else Color.rgb(30, 27, 19),
-                    if (isNight) Color.rgb(219, 198, 110) else Color.rgb(83, 70, 0),
+                    if (isNight) Color.parseColor("#DBC66E") else Color.parseColor("#6D5E0F"),         // accent = primary
+                    if (isNight) Color.parseColor("#1B1912") else Color.parseColor("#FFF9EE"),         // background = background/surface
+                    if (isNight) Color.parseColor("#15130D") else Color.parseColor("#FFFFFF"),          // keyBackground = surfaceContainerLowest
+                    if (isNight) Color.parseColor("#534600") else Color.parseColor("#F8E287"),          // functionalKey = primaryContainer
+                    if (isNight) Color.parseColor("#1E1B13") else Color.parseColor("#F4EDDF"),         // spaceBar = surfaceContainer
+                    if (isNight) Color.parseColor("#E8E2D4") else Color.parseColor("#1E1B13"),         // keyText = onSurface
+                    if (isNight) Color.parseColor("#7C7767") else Color.parseColor("#4B4739"),         // keyHintText = outline
+                    if (isNight) Color.parseColor("#CDC6B4") else Color.parseColor("#4B4739"),         // suggestionText = onSurfaceVariant
+                    if (isNight) Color.parseColor("#F8E287") else Color.parseColor("#534600"),         // spaceBarText = onPrimaryContainer
+                    if (isNight) Color.parseColor("#A9D0B3") else Color.parseColor("#43664E"),         // gesture = tertiary
                     keyboardBackground = backgroundImage
                 )
                 else -> { // user-defined theme

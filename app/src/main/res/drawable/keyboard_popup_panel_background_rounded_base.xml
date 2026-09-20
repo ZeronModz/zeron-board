@@ -94,7 +94,7 @@
     <item>
         <shape>
             <corners android:radius="16dp" />
-            <solid android:color="#ffffff" />
+            <solid android:color="#FFFFFF" />
         </shape>
     </item>
 </layer-list>

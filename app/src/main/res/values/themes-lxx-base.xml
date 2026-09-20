@@ -31,9 +31,9 @@
         <item name="android:background">@color/keyboard_background_lxx_base</item>
         <item name="keyBackground">@drawable/btn_keyboard_key_lxx_base</item>
         <item name="functionalKeyBackground">@drawable/btn_keyboard_key_lxx_base</item>
-        <item name="keyTextInactivatedColor">@color/key_text_inactive_color_lxx_light</item>
-        <item name="keyShiftedLetterHintInactivatedColor">@color/key_text_inactive_color_lxx_light</item>
-        <item name="keyShiftedLetterHintActivatedColor">@color/key_text_color_lxx_light</item>
+        <item name="keyTextInactivatedColor">#75796C</item>
+        <item name="keyShiftedLetterHintInactivatedColor">#75796C</item>
+        <item name="keyShiftedLetterHintActivatedColor">#1A1C16</item>
     </style>
     <style
         name="MainKeyboardView.LXX_Base"
@@ -120,6 +120,6 @@
         parent="SuggestionWord"
         >
         <item name="android:background">@drawable/btn_suggestion_lxx_base</item>
-        <item name="android:textColor">@color/highlight_color_lxx_light</item>
+        <item name="android:textColor">#4C662B</item>
     </style>
 </resources>
