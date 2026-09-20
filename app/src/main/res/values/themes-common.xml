@@ -25,7 +25,6 @@
         <!-- This keyBackground is needed to run unit tests based on {@link InputTestBase}. -> todo: so it can be removed? -->
         <item name="keyBackground">@drawable/btn_keyboard_key_holo_white</item>
         <item name="keyTypeface">normal</item>
-        <item name="android:fontFamily">@font/googlesans_regular</item>
         <!-- A negative value to disable key text shadow layer. -->
         <item name="keyTextShadowRadius">-1.0</item>
         <item name="keyHintLetterPadding">@dimen/config_key_hint_letter_padding</item>

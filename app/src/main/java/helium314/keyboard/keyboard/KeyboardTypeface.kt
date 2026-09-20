@@ -6,11 +6,9 @@ import android.content.Context
 import android.graphics.Typeface
 import android.widget.TextView
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontWeight
-import helium314.keyboard.R
 import helium314.keyboard.latin.common.isEmoji
 import helium314.keyboard.latin.settings.Settings
+import java.io.File
 
 object KeyboardTypeface {
     private val lock = Any()
@@ -27,9 +25,19 @@ object KeyboardTypeface {
     private var defaultTypeface: Typeface? = null
 
     private fun loadDefaultTypeface(context: Context): Typeface {
-        return runCatching {
-            context.resources.getFont(R.font.googlesans_regular)
-        }.getOrNull() ?: Typeface.DEFAULT
+        return try {
+            val afd = context.resources.assets?.open("fonts/GoogleSans-Regular.ttf")
+            if (afd != null) {
+                val tmpFile = File(context.cacheDir, "GoogleSans-Regular.ttf")
+                tmpFile.outputStream().use { out -> afd.copyTo(out) }
+                afd.close()
+                Typeface.createFromFile(tmpFile)
+            } else {
+                Typeface.DEFAULT
+            }
+        } catch (e: Exception) {
+            Typeface.DEFAULT
+        }
     }
 
     private fun loadCustomTypeface(context: Context): Typeface? {
