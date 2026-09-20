@@ -272,10 +272,65 @@ public class KeyboardParams {
                 final String[] data = context.getResources().getStringArray(actualId);
                 mTouchPositionCorrection.load(data);
             }
+
+            // Apply Gboard-like responsive constraints
+            applyResponsiveConstraints(width, height);
         } finally {
             keyAttr.recycle();
             keyboardAttr.recycle();
         }
         setTabletExtraKeys = Settings.getInstance().isTablet() && !mId.getSubtype().isCustom();
+    }
+
+    /**
+     * Apply Gboard-like responsive constraints after XML values are read.
+     * Overrides padding, gap, and row height with constrained values
+     * that produce compact, Gboard-like proportions.
+     */
+    private void applyResponsiveConstraints(int occupiedWidthPx, int occupiedHeightPx) {
+        float density = 1f;
+        try {
+            density = Resources.getSystem().getDisplayMetrics().density;
+        } catch (Exception ignored) {}
+
+        float widthDp = occupiedWidthPx / density;
+        float heightDp = occupiedHeightPx / density;
+
+        // Side padding: 3-8dp, ~3.5% of width
+        float sidePaddingDp = Math.max(3f, Math.min(8f, widthDp * 0.035f));
+        int sidePaddingPx = Math.round(sidePaddingDp * density);
+        mLeftPadding = (int)(sidePaddingPx * Settings.getValues().mSidePaddingScale);
+        mRightPadding = (int)(sidePaddingPx * Settings.getValues().mSidePaddingScale);
+
+        // Horizontal gap: 2.5-5dp
+        float hGapDp = Math.max(2.5f, Math.min(5f, widthDp * 0.008f));
+        mHorizontalGap = Math.round(hGapDp * density);
+        mRelativeHorizontalGap = mHorizontalGap / (float) occupiedWidthPx;
+
+        // Vertical gap: 2.5-5dp
+        float vGapDp = Math.max(2.5f, Math.min(5f, heightDp * 0.008f));
+        mVerticalGap = Math.round(vGapDp * density);
+        mRelativeVerticalGap = mVerticalGap / (float) occupiedHeightPx;
+
+        // Recalculate base width
+        mBaseWidth = mOccupiedWidth - mLeftPadding - mRightPadding;
+
+        // Top/bottom padding: constrained
+        float topPadDp = Math.max(2f, Math.min(5f, heightDp * 0.01f));
+        float bottomPadDp = Math.max(2f, Math.min(7f, heightDp * 0.015f));
+        mTopPadding = Math.round(topPadDp * density);
+        mBottomPadding = Math.round(bottomPadDp * density * Settings.getValues().mBottomPaddingScale);
+
+        // Recalculate base height
+        mBaseHeight = mOccupiedHeight - mTopPadding - mBottomPadding + mVerticalGap;
+
+        // Row height: 22-24% of base height (compact Gboard-like)
+        float rowHeightFraction = 0.225f;
+        mDefaultRowHeight = rowHeightFraction;
+        mDefaultAbsoluteRowHeight = (int)(rowHeightFraction * mBaseHeight);
+
+        // Default key width: 1/10 of base width (for QWERTY 10-key row)
+        mDefaultKeyWidth = 1f / DEFAULT_KEYBOARD_COLUMNS;
+        mDefaultAbsoluteKeyWidth = (int)(mDefaultKeyWidth * mBaseWidth);
     }
 }
