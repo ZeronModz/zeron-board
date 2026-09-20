@@ -133,7 +133,7 @@
         parent="SuggestionWord"
         >
         <item name="android:background">@drawable/btn_suggestion_rounded_base</item>
-        <item name="android:textColor">#3C2415</item>
+        <item name="android:textColor">#1A1C16</item>
     </style>
 
 </resources>

@@ -5,10 +5,10 @@
     <item>
         <shape>
             <corners
-                android:topRightRadius="14dp"
-                android:topLeftRadius="14dp"
-                android:bottomLeftRadius="16dp"
-                android:bottomRightRadius="16dp" />
+                android:topRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:bottomLeftRadius="12dp"
+                android:bottomRightRadius="12dp" />
             <solid android:color="#08000000" />
             <padding android:top="0dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
         </shape>
@@ -16,10 +16,10 @@
     <item>
         <shape>
             <corners
-                android:topRightRadius="14dp"
-                android:topLeftRadius="14dp"
-                android:bottomLeftRadius="15dp"
-                android:bottomRightRadius="15dp" />
+                android:topRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:bottomLeftRadius="11dp"
+                android:bottomRightRadius="11dp" />
             <solid android:color="#10000000" />
             <padding android:top="0dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
         </shape>
@@ -27,10 +27,10 @@
     <item>
         <shape>
             <corners
-                android:topRightRadius="14dp"
-                android:topLeftRadius="14dp"
-                android:bottomLeftRadius="14dp"
-                android:bottomRightRadius="14dp" />
+                android:topRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:bottomLeftRadius="10dp"
+                android:bottomRightRadius="10dp" />
             <solid android:color="#18000000" />
             <padding android:top="0dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
         </shape>
@@ -38,10 +38,10 @@
     <item>
         <shape>
             <corners
-                android:topRightRadius="14dp"
-                android:topLeftRadius="14dp"
-                android:bottomLeftRadius="13dp"
-                android:bottomRightRadius="13dp" />
+                android:topRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:bottomLeftRadius="9dp"
+                android:bottomRightRadius="9dp" />
             <solid android:color="#20000000" />
             <padding android:top="0dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
         </shape>
@@ -49,10 +49,10 @@
     <item>
         <shape>
             <corners
-                android:topRightRadius="14dp"
-                android:topLeftRadius="14dp"
-                android:bottomLeftRadius="12dp"
-                android:bottomRightRadius="12dp" />
+                android:topRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:bottomLeftRadius="8dp"
+                android:bottomRightRadius="8dp" />
             <solid android:color="#28000000" />
             <padding android:top="0dp" android:right="0dp" android:bottom="1dp" android:left="0dp" />
         </shape>
@@ -60,7 +60,7 @@
     <!-- Popup background -->
     <item>
         <shape>
-            <corners android:radius="14dp" />
+            <corners android:radius="10dp" />
             <solid android:color="#FFFFFF" />
         </shape>
     </item>
