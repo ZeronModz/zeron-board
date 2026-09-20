@@ -6,25 +6,25 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="4dp"
+        android:background="@drawable/clipboard_entry_background">
 
     <ImageView
             android:id="@+id/clipboard_entry_pinned_icon"
             android:contentDescription="@string/clipboard_history_pinned_first"
             android:layout_width="@dimen/config_clipboard_pinned_icon_size"
             android:layout_height="@dimen/config_clipboard_pinned_icon_size"
-            android:layout_marginVertical="8dp"
-            android:layout_marginStart="4dp"/>
+            android:layout_marginEnd="8dp"/>
 
-    <!-- Provide audio and haptic feedback by ourselves based on the keyboard settings.
-         We just need to ignore the system's audio and haptic feedback settings. -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="6dp"
-        android:layout_marginHorizontal="8dp"
         android:hapticFeedbackEnabled="false"
         android:soundEffectsEnabled="false"
         android:orientation="vertical">
@@ -40,7 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="4"/>
+            android:maxLines="3"
+            android:lineSpacingMultiplier="1.1"/>
     </LinearLayout>
 
 </LinearLayout>

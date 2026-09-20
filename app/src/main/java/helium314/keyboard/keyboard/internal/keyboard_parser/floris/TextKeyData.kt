@@ -468,6 +468,14 @@ sealed interface KeyData : AbstractKeyData {
                     )
                 ) else null // why the alphabet popup keys actually?
             }
+            "v" -> {
+                if (params.mId.element.isAlphabet) SimplePopups(
+                    listOf(
+                        "!noPanelAutoPopupKey!",
+                        " |!code/clipboard_paste"
+                    )
+                ) else null
+            }
             KeyLabel.COM -> SimplePopups(
                 listOf(Key.POPUP_KEYS_HAS_LABELS).plus(params.mLocaleKeyboardInfos.tlds.drop(1))
             )
