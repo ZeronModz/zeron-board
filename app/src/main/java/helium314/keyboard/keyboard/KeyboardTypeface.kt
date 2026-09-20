@@ -6,6 +6,9 @@ import android.content.Context
 import android.graphics.Typeface
 import android.widget.TextView
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontWeight
+import helium314.keyboard.R
 import helium314.keyboard.latin.common.isEmoji
 import helium314.keyboard.latin.settings.Settings
 
@@ -21,6 +24,14 @@ object KeyboardTypeface {
     @Volatile
     private var emojiTypefaceLoaded = false
 
+    private var defaultTypeface: Typeface? = null
+
+    private fun loadDefaultTypeface(context: Context): Typeface {
+        return runCatching {
+            context.resources.getFont(R.font.googlesans_regular)
+        }.getOrNull() ?: Typeface.DEFAULT
+    }
+
     private fun loadCustomTypeface(context: Context): Typeface? {
         return runCatching {
             Typeface.createFromFile(Settings.getCustomFontFile(context))
@@ -31,6 +42,14 @@ object KeyboardTypeface {
         return runCatching {
             Typeface.createFromFile(Settings.getCustomEmojiFontFile(context))
         }.getOrNull()
+    }
+
+    @JvmStatic
+    fun getDefaultTypeface(context: Context): Typeface {
+        if (defaultTypeface == null) {
+            defaultTypeface = loadDefaultTypeface(context)
+        }
+        return defaultTypeface ?: Typeface.DEFAULT
     }
 
     @JvmStatic
@@ -81,7 +100,8 @@ object KeyboardTypeface {
 
     @JvmStatic
     fun applyToTextView(textView: TextView) {
-        applyToTextView(textView, textView.text, Typeface.DEFAULT)
+        val context = textView.context
+        applyToTextView(textView, textView.text, getDefaultTypeface(context))
     }
 
     @JvmStatic

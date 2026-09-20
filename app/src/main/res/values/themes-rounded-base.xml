@@ -122,7 +122,7 @@
         <item name="centerSuggestionPercentile">@fraction/config_center_suggestion_percentile</item>
         <item name="maxMoreSuggestionsRow">@integer/config_max_more_suggestions_row</item>
         <item name="minMoreSuggestionsWidth">@fraction/config_min_more_suggestions_width</item>
-        <item name="android:background">@drawable/keyboard_background_lxx_base</item>
+        <item name="android:background">@color/keyboard_background_lxx_light_border</item>
         <item name="android:src">@drawable/suggestions_strip_divider</item>
         <item name="suggestionStripOptions">autoCorrectBold|validTypedWordBold</item>
         <item name="alphaObsoleted">70%</item>
@@ -133,7 +133,7 @@
         parent="SuggestionWord"
         >
         <item name="android:background">@drawable/btn_suggestion_rounded_base</item>
-        <item name="android:textColor">#4C662B</item>
+        <item name="android:textColor">#3C2415</item>
     </style>
 
 </resources>

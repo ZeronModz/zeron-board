@@ -6,15 +6,15 @@
 -->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Color resources for LXX_Light_Border/LXX_Base_Border theme. -->
-    <color name="keyboard_background_lxx_light_border">#EEEFE3</color>
+    <!-- ZeronBoard Peach Theme - Exact Gboard Clone -->
+    <color name="keyboard_background_lxx_light_border">#F5DDD3</color>
     <color name="key_background_normal_lxx_light_border">#FFFFFF</color>
-    <color name="key_background_functional_lxx_light_border">#CDEDA3</color>
+    <color name="key_background_functional_lxx_light_border">#F5DDD3</color>
 
-    <color name="highlight_color_lxx_dark">#5E97F6</color>
-    <color name="gesture_trail_color_lxx_dark">#B1D18A</color>
-    <color name="gesture_trail_color_lxx_light">#386663</color>
-    <color name="key_text_inactive_color_lxx_light">#B337474F</color>
+    <color name="highlight_color_lxx_dark">#8B5A3C</color>
+    <color name="gesture_trail_color_lxx_dark">#F5DDD3</color>
+    <color name="gesture_trail_color_lxx_light">#8B5A3C</color>
+    <color name="key_text_inactive_color_lxx_light">#803C2415</color>
     <color name="highlight_color_holo_white">#FFF0F0F0</color>
     <color name="key_text_inactivated_color_holo">#66E0E4E5</color>
     <color name="key_shifted_letter_hint_inactivated_color_holo">#66E0E4E5</color>
@@ -22,54 +22,53 @@
     <color name="spacebar_text_shadow_color_holo">#80000000</color>
     <color name="emoji_tab_page_indicator_background_holo">#111111</color>
 
-    <!-- Color resources for the old LXX_Light theme, now used for THEME_LIGHT. -->
-    <color name="key_hint_letter_color_lxx_light">#75796C</color>
-    <color name="key_text_color_lxx_light">#1A1C16</color>
+    <!-- Key text colors -->
+    <color name="key_hint_letter_color_lxx_light">#8B5A3C</color>
+    <color name="key_text_color_lxx_light">#3C2415</color>
 
-    <!-- Color resources for the old LXX_Dark theme, now used for several dark themes. -->
-    <color name="key_text_color_lxx_dark">#E2E3D8</color>
-    <color name="key_hint_letter_color_lxx_dark">#8F9285</color>
+    <!-- Dark theme colors -->
+    <color name="key_text_color_lxx_dark">#F5DDD3</color>
+    <color name="key_hint_letter_color_lxx_dark">#A08070</color>
 
-    <!-- Color resources for the old LXX_Dark_Border theme, now for THEME_DARKER. -->
-    <color name="keyboard_background_lxx_dark_border">#1E201A</color>
-    <color name="key_background_normal_lxx_dark_border">#33362E</color>
-    <color name="key_background_functional_lxx_dark_border">#282B24</color>
-    <!-- Color resources for the old LXX_Dark_Amoled theme, now for THEME_BLACK. -->
+    <!-- Dark border theme -->
+    <color name="keyboard_background_lxx_dark_border">#2A1F1A</color>
+    <color name="key_background_normal_lxx_dark_border">#3D3228</color>
+    <color name="key_background_functional_lxx_dark_border">#2A1F1A</color>
     <color name="background_amoled_black">#000000</color>
     <color name="background_amoled_dark">#1A1A1A</color>
 
-    <!-- Color resources for LXX_Base theme. -->
-    <color name="keyboard_background_lxx_base">#F9FAEF</color>
-    <color name="key_background_lxx_base">@android:color/white</color>
-    <color name="action_key_background_lxx_base">@android:color/white</color>
-    <color name="emoji_tab_page_indicator_background_lxx_base">@android:color/white</color>
+    <!-- LXX Base theme -->
+    <color name="keyboard_background_lxx_base">#F5DDD3</color>
+    <color name="key_background_lxx_base">#FFFFFF</color>
+    <color name="action_key_background_lxx_base">#F5DDD3</color>
+    <color name="emoji_tab_page_indicator_background_lxx_base">#FFFFFF</color>
 
-    <!-- Color resources for LXX_Base_Border theme. -->
-    <color name="keyboard_background_lxx_base_border">@android:color/white</color>
-    <color name="key_background_normal_lxx_base_border">@android:color/white</color>
-    <color name="key_bottom_bevel_lxx_base">#C5C8BA</color>
-    <color name="emoji_tab_page_indicator_background_lxx_base_border">@android:color/white</color>
+    <!-- LXX Base Border theme -->
+    <color name="keyboard_background_lxx_base_border">#F5DDD3</color>
+    <color name="key_background_normal_lxx_base_border">#FFFFFF</color>
+    <color name="key_bottom_bevel_lxx_base">#E8C4B0</color>
+    <color name="emoji_tab_page_indicator_background_lxx_base_border">#FFFFFF</color>
 
-    <!-- Color resources for setup wizard, tutorial and settings -->
-    <color name="accent">@color/highlight_color_lxx_light</color>
-    <color name="setup_background">#FFF9FAEF</color>
-    <color name="setup_step_background">#FFD6EDBE</color>
-    <color name="setup_text_title">#FF4C662B</color>
-    <color name="setup_text_action">#FF4C662B</color>
-    <color name="action_bar_color">#FFF3F4E9</color>
-    <color name="navigation_bar_color">#B3888888</color>
+    <!-- Setup wizard, tutorial and settings -->
+    <color name="accent">#8B5A3C</color>
+    <color name="setup_background">#FFF5DDD3</color>
+    <color name="setup_step_background">#FFEEC9B8</color>
+    <color name="setup_text_title">#FF8B5A3C</color>
+    <color name="setup_text_action">#FF8B5A3C</color>
+    <color name="action_bar_color">#FFF5DDD3</color>
+    <color name="navigation_bar_color">#B3F5DDD3</color>
 
-    <!-- Colors that are different for night theme -->
-    <color name="foreground">#000</color>
-    <color name="foreground_weak">#555</color>
-    <color name="toast_background">#666666</color>
-    <color name="highlight_color_lxx_light">#4C662B</color> <!-- todo: remove / replace with accent? -->
+    <!-- General colors -->
+    <color name="foreground">#3C2415</color>
+    <color name="foreground_weak">#8B5A3C</color>
+    <color name="toast_background">#3C2415</color>
+    <color name="highlight_color_lxx_light">#8B5A3C</color>
     <color name="keyboard_background">@color/keyboard_background_light</color>
 
-    <!-- Actually used keyboard default background colors -->
-    <color name="keyboard_background_light">@color/keyboard_background_lxx_light_border</color>
-    <color name="keyboard_background_dark">#12140E</color>
+    <!-- Keyboard background -->
+    <color name="keyboard_background_light">#F5DDD3</color>
+    <color name="keyboard_background_dark">#2A1F1A</color>
 
     <!-- Scrollbar color -->
-    <color name="toolbar_scrollbar">#66808080</color>
+    <color name="toolbar_scrollbar">#668B5A3C</color>
 </resources>
