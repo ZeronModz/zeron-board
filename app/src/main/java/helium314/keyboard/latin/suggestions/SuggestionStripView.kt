@@ -25,10 +25,8 @@ import android.view.ViewGroup
 import android.view.accessibility.AccessibilityEvent
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.PopupWindow
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.view.Gravity
 import androidx.core.view.doOnNextLayout
 import androidx.core.view.isVisible
 import helium314.keyboard.event.HapticEvent
@@ -122,7 +120,6 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
     private val suggestionsStrip: ViewGroup = findViewById(R.id.suggestions_strip)
     private val toolbarExpandKey = findViewById<ImageButton>(R.id.suggestions_strip_toolbar_key)
     private val incognitoIcon = KeyboardIconsSet.instance.getNewDrawable(ToolbarKey.INCOGNITO.name, context)
-    private val menu4DotIcon = androidx.core.content.ContextCompat.getDrawable(context, R.drawable.ic_menu_4dot)
     private val toolbarArrowIcon = KeyboardIconsSet.instance.getNewDrawable(KeyboardIconsSet.NAME_TOOLBAR_KEY, context)
     private val defaultToolbarBackground: Drawable = toolbarExpandKey.background
     private val enabledToolKeyBackground = GradientDrawable()
@@ -231,13 +228,9 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
     }
 
     fun setToolbarVisibility(toolbarVisible: Boolean) {
-        // In EXPANDABLE mode, always show toolbar (compact style with 4-dot menu)
-        val isExpandableMode = Settings.getValues().mToolbarMode == ToolbarMode.EXPANDABLE
-        val effectiveVisible = if (isExpandableMode) true else toolbarVisible
-
-        pinnedKeys.isVisible = !effectiveVisible
-        suggestionsStrip.isVisible = !effectiveVisible
-        toolbarContainer.isVisible = effectiveVisible
+        pinnedKeys.isVisible = !toolbarVisible
+        suggestionsStrip.isVisible = !toolbarVisible
+        toolbarContainer.isVisible = toolbarVisible
 
         if (DEBUG_SUGGESTIONS) {
             for (view in debugInfoViews) {
@@ -245,7 +238,7 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
             }
         }
 
-        toolbarExpandKey.scaleX = (if (effectiveVisible) -1f else 1f) * direction
+        toolbarExpandKey.scaleX = (if (toolbarVisible) -1f else 1f) * direction
     }
 
     fun setSuggestions(suggestions: SuggestedWords, isRtlLanguage: Boolean) {
@@ -343,9 +336,7 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
         }
         AudioAndHapticFeedbackManager.getInstance().performHapticAndAudioFeedback(KeyCode.NOT_SPECIFIED, this, HapticEvent.KEY_PRESS)
         if (view === toolbarExpandKey) {
-            // Show the toolbar menu popup instead of toggling toolbar visibility
-            showToolbarMenuPopup()
-            return
+            setToolbarVisibility(toolbarContainer.visibility != VISIBLE)
         }
 
         // tag for word views is set in SuggestionStripLayoutHelper (setupWordViewsTextAndColor, layoutPunctuationSuggestions)
@@ -524,8 +515,7 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
             toolbarExpandKey.setImageDrawable(incognitoIcon)
             toolbarExpandKey.isVisible = true
         } else {
-            // Use 4-dot menu icon for expandable mode
-            toolbarExpandKey.setImageDrawable(menu4DotIcon)
+            toolbarExpandKey.setImageDrawable(toolbarArrowIcon)
             toolbarExpandKey.isVisible = toolbarIsExpandable
         }
 
@@ -556,107 +546,6 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
         (view.layoutParams as LinearLayout.LayoutParams).weight = 1f
         colors.setColor(view, ColorType.TOOL_BAR_KEY)
         colors.setBackground(view, ColorType.STRIP_BACKGROUND)
-    }
-
-    private var toolbarMenuPopup: PopupWindow? = null
-
-    private fun showToolbarMenuPopup() {
-        if (toolbarMenuPopup?.isShowing == true) {
-            dismissToolbarMenuPopup()
-            return
-        }
-
-        val inflater = LayoutInflater.from(context)
-        val popupView = inflater.inflate(R.layout.toolbar_menu_popup, null)
-
-        val icons = KeyboardIconsSet.instance
-        val colors = Settings.getValues().mColors
-
-        // Row 1: Back, Settings, Voice, Clipboard
-        setupPopupItem(popupView.findViewById(R.id.menu_back), popupView.findViewById(R.id.menu_back_icon), popupView.findViewById(R.id.menu_back_label), ToolbarKey.CLOSE_HISTORY, "Back", icons, colors)
-        setupPopupItem(popupView.findViewById(R.id.menu_settings), popupView.findViewById(R.id.menu_settings_icon), popupView.findViewById(R.id.menu_settings_label), ToolbarKey.SETTINGS, "Settings", icons, colors)
-        setupPopupItem(popupView.findViewById(R.id.menu_voice), popupView.findViewById(R.id.menu_voice_icon), popupView.findViewById(R.id.menu_voice_label), ToolbarKey.VOICE, "Voice input", icons, colors)
-        setupPopupItem(popupView.findViewById(R.id.menu_clipboard), popupView.findViewById(R.id.menu_clipboard_icon), popupView.findViewById(R.id.menu_clipboard_label), ToolbarKey.CLIPBOARD, "Clipboard", icons, colors)
-
-        // Row 2: Undo, Redo, Select, Copy
-        setupPopupItem(popupView.findViewById(R.id.menu_undo), popupView.findViewById(R.id.menu_undo_icon), popupView.findViewById(R.id.menu_undo_label), ToolbarKey.UNDO, "Undo", icons, colors)
-        setupPopupItem(popupView.findViewById(R.id.menu_redo), popupView.findViewById(R.id.menu_redo_icon), popupView.findViewById(R.id.menu_redo_label), ToolbarKey.REDO, "Redo", icons, colors)
-        setupPopupItem(popupView.findViewById(R.id.menu_select), popupView.findViewById(R.id.menu_select_icon), popupView.findViewById(R.id.menu_select_label), ToolbarKey.SELECT_WORD, "Select", icons, colors)
-        setupPopupItem(popupView.findViewById(R.id.menu_copy), popupView.findViewById(R.id.menu_copy_icon), popupView.findViewById(R.id.menu_copy_label), ToolbarKey.COPY, "Copy", icons, colors)
-
-        // Row 3: Paste, Move Left, Move Right
-        setupPopupItem(popupView.findViewById(R.id.menu_paste), popupView.findViewById(R.id.menu_paste_icon), popupView.findViewById(R.id.menu_paste_label), ToolbarKey.PASTE, "Paste", icons, colors)
-        setupPopupItem(popupView.findViewById(R.id.menu_move_left), popupView.findViewById(R.id.menu_move_left_icon), popupView.findViewById(R.id.menu_move_left_label), ToolbarKey.LEFT, "Move left", icons, colors)
-        setupPopupItem(popupView.findViewById(R.id.menu_move_right), popupView.findViewById(R.id.menu_move_right_icon), popupView.findViewById(R.id.menu_move_right_label), ToolbarKey.RIGHT, "Move right", icons, colors)
-
-        toolbarMenuPopup = PopupWindow(
-            popupView,
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            true
-        ).apply {
-            elevation = 24f
-            isOutsideTouchable = true
-            setOnDismissListener {
-                toolbarMenuPopup = null
-                toolbarExpandKey.animate().scaleX(1f).scaleY(1f).setDuration(150).start()
-            }
-        }
-
-        // Animate 4-dot button press
-        toolbarExpandKey.animate().scaleX(0.94f).scaleY(0.94f).setDuration(100).start()
-
-        // Show above the keyboard strip, aligned to the left
-        toolbarMenuPopup?.showAtLocation(
-            toolbarExpandKey,
-            Gravity.BOTTOM or Gravity.START,
-            0,
-            toolbarExpandKey.height + 8
-        )
-
-        // Animate popup entrance
-        popupView.alpha = 0f
-        popupView.translationY = 20f
-        popupView.animate()
-            .alpha(1f)
-            .translationY(0f)
-            .setDuration(220)
-            .start()
-    }
-
-    private fun dismissToolbarMenuPopup() {
-        val popup = toolbarMenuPopup ?: return
-        if (!popup.isShowing) {
-            toolbarMenuPopup = null
-            return
-        }
-        val popupView = popup.contentView ?: return
-
-        popupView.animate()
-            .alpha(0f)
-            .translationY(-10f)
-            .setDuration(180)
-            .withEndAction {
-                if (popup.isShowing) popup.dismiss()
-                toolbarMenuPopup = null
-                toolbarExpandKey.animate().scaleX(1f).scaleY(1f).setDuration(150).start()
-            }
-            .start()
-    }
-
-    private fun setupPopupItem(container: View, iconButton: ImageButton, labelView: TextView, key: ToolbarKey, label: String, icons: KeyboardIconsSet, colors: Colors) {
-        iconButton.setImageDrawable(icons.getNewDrawable(key.name, context))
-        iconButton.drawable?.let { colors.setColor(it, ColorType.TOOL_BAR_KEY) }
-        labelView.text = label
-        labelView.setTextColor(colors.get(ColorType.KEY_TEXT))
-
-        container.setOnClickListener {
-            toolbarMenuPopup?.dismiss()
-            val code = helium314.keyboard.latin.utils.getCodeForToolbarKey(key)
-            if (code != helium314.keyboard.keyboard.internal.keyboard_parser.floris.KeyCode.UNSPECIFIED) {
-                listener.onCodeInput(code, Constants.SUGGESTION_STRIP_COORDINATE, Constants.SUGGESTION_STRIP_COORDINATE, false)
-            }
-        }
     }
 
     companion object {
