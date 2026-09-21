@@ -30,7 +30,7 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: ZeronBoard-debug
+          name: Neko-debug
           path: app/build/outputs/apk/debug/*-debug*.apk
 
       - name: Archive reports for failed job

@@ -10,7 +10,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.zeron.keyboard"
+        applicationId = "dev.zeron.neko"
         minSdk = 21
         targetSdk = 37
         versionCode = 100
